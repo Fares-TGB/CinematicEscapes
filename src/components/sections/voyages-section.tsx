@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { trips, universes } from "@/lib/data";
@@ -59,9 +59,13 @@ function TripCard({ trip }: { trip: (typeof trips)[number] }) {
   );
 }
 
-export function VoyagesSection() {
-  const [activeFilter, setActiveFilter] = useState("all");
-
+export function VoyagesSection({
+  activeFilter,
+  onFilterChange,
+}: {
+  activeFilter: string;
+  onFilterChange: (filter: string) => void;
+}) {
   const filteredTrips = useMemo(() => {
     if (activeFilter === "all") return trips;
     return trips.filter((t) => t.universe === activeFilter);
@@ -91,7 +95,7 @@ export function VoyagesSection() {
             {filters.map((f) => (
               <button
                 key={f.id}
-                onClick={() => setActiveFilter(f.id)}
+                onClick={() => onFilterChange(f.id)}
                 className={cn(
                   "rounded-full px-5 py-2 text-sm font-medium transition-all",
                   activeFilter === f.id

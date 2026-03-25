@@ -120,7 +120,7 @@ export const trips: Trip[] = [
     description:
       "Explorez les châteaux italiens les plus mystérieux, entre passion interdite et secrets ancestraux. Nuits dans des palazzos hantés par l'histoire.",
     imageUrl:
-      "https://images.unsplash.com/photo-1551410224-699683e15636?w=1920&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1657868674989-4061c2d335fb?w=1920&q=80&fit=crop",
     tags: ["Romance", "Mystère", "Châteaux"],
   },
   {
